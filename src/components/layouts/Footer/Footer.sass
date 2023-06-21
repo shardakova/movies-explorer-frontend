@@ -1,0 +1,55 @@
+@import '../../../styles/mixins/tablet'
+@import '../../../styles/mixins/desktop'
+
+.footer
+    grid-area: footer
+    font-size: 12px
+
+    @include tablet
+        font-size: 13px
+
+    &__info
+        color: var(--color-light--dakren-2)
+        text-align: center
+        padding: 20px 0
+
+    &__bottom
+        display: flex
+        flex-direction: column-reverse
+        grid-area: footer
+        justify-content: space-between
+        align-items: center
+        border-top: 1px solid var(--color-dark--lighten-5)
+
+        @include tablet
+            flex-direction: row
+            padding: 20px 0
+
+    &__links
+        display: flex
+        flex-direction: column
+        gap: 12px
+        text-align: center
+        padding: 30px 0
+
+        @include tablet
+            flex-direction: row
+            gap: 20px
+            padding: 0
+
+    &__copyright
+        color: var(--color-light--dakren-2)
+        padding-bottom: 20px
+
+        @include tablet
+            color: var(--color-light)
+            padding-bottom: 0
+
+    &__landing
+        padding: 0 10px
+
+        @include tablet
+            padding: 0 30px
+
+        @include desktop
+            padding: 0 70px

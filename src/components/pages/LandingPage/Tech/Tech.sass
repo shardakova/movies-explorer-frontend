@@ -1,0 +1,53 @@
+@import '../../../../styles/mixins/tablet'
+@import '../../../../styles/mixins/desktop'
+
+.tech
+    background: var(--color-dark--lighten-1)
+    padding: 70px 14px
+
+    @include tablet
+        padding: 90px 50px
+
+    @include desktop
+        padding: 100px 70px
+
+    &__title
+        font-size: 30px
+        padding-bottom: 24px
+        text-align: center
+        font-weight: var(--font-weight-base)
+        margin: 0
+
+        @include tablet
+            font-size: 50px
+
+    &__description
+        max-width: 460px
+        font-size: 12px
+        padding-bottom: 50px
+        text-align: center
+        margin: 0 auto
+
+        @include desktop
+            font-size: 14px
+
+    &__tags
+        display: flex
+        flex-wrap: wrap
+        gap: 10px
+        justify-content: center
+
+    &__tag
+        display: grid
+        place-content: center
+        width: 84px
+        height: 57px
+        background: var(--color-dark--lighten-3)
+        font-size: 12px
+        border-radius: 12px
+
+        @include desktop
+            font-size: 14px
+            width: 90px
+            height: 60px
+

@@ -1,0 +1,64 @@
+@import '../../../styles/mixins/tablet'
+@import '../../../styles/mixins/desktop'
+
+.header
+    display: flex
+    grid-area: header
+    justify-content: space-between
+    align-items: center
+    padding: 15px 4px
+    font-size: 10px
+
+    @include tablet
+        padding: 15px 0
+        font-size: 12px
+
+    @include desktop
+        padding: 18px 0
+
+    &__landing
+        padding: 15px 14px
+        background: var(--color-secondary)
+
+        @include tablet
+            padding: 15px 30px
+
+        @include desktop
+            padding: 18px 70px
+
+    &__logo
+        display: flex
+        align-items: center
+        user-select: none
+
+    &__logo-link
+        display: flex
+
+    &__links
+        display: flex
+        gap: 30px
+        align-items: center
+        font-weight: var(--font-weight-bold)
+
+    &__links_logged-in
+        gap: 20px
+
+    &__link_active
+        font-weight: var(--font-weight-bold)
+
+    &__profile-link
+        display: flex
+        gap: 13px
+        margin-left: 30px
+        align-items: center
+
+    &__profile-link-icon
+        display: inline-grid
+        background: var(--color-dark--lighten-4)
+        width: 30px
+        height: 30px
+        border-radius: 6px
+        place-items: center
+
+    &__landing &__profile-link-icon
+        background: var(--color-accent)
