@@ -1,4 +1,4 @@
-export default function secondsToLengthString (totalSeconds) {
+export default function secondsToDurationString (totalSeconds) {
   const totalMinutes = Math.floor(totalSeconds / 60);
 
   const seconds = totalSeconds % 60;
