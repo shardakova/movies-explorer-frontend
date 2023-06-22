@@ -3,6 +3,7 @@ import MainLayout from '../../layouts/MainLayout/MainLayout';
 import SearchForm from '../../elements/SearchForm/SearchForm';
 import Movie from '../../elements/Movie/Movie';
 import movies from '../../../vendor/beatfilm-movies.json';
+import Button from '../../elements/Button/Button';
 
 function MoviesPage () {
   return (
@@ -23,6 +24,14 @@ function MoviesPage () {
               onLike={() => {}}
             />)
           )}
+        </div>
+        <div className="movies-page__buttons">
+          <Button
+            className="movies-page__button-more"
+            ariaLabel="Загрузить больше фильмов"
+            onClick={() => {}}>
+            Ещё
+          </Button>
         </div>
       </div>
     </MainLayout>

@@ -2,7 +2,7 @@ import './Movie.sass';
 import Button from '../Button/Button';
 import { ReactComponent as CloseIcon } from '../../../images/icons/close.svg';
 import { ReactComponent as LikeIcon } from '../../../images/icons/like.svg';
-import secondsToLengthString from '../../../utils/secondsToLengthString';
+import secondsToDurationString from '../../../utils/secondsToDurationString';
 
 function Movie (props) {
   let deleteButton = null;
@@ -51,7 +51,7 @@ function Movie (props) {
       </div>
       <div className="movie__footer">
         <div className="movie__length">
-          {secondsToLengthString(props.duration)}
+          {secondsToDurationString(props.duration)}
         </div>
       </div>
     </div>

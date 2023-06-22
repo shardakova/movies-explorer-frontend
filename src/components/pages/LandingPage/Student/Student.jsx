@@ -25,15 +25,15 @@ function Student () {
       <section className="student__portfolio">
         <div className="student__portfolio-title">Портфолио</div>
         <div className="student__portfolio-links">
-          <div className="student__portfolio-link">
-            <a href="https://github.com/shardakova" target="_blank" rel="noreferrer">Статичный сайт</a>
-          </div>
-          <div className="student__portfolio-link">
-            <a href="https://github.com/shardakova" target="_blank" rel="noreferrer">Адаптивный сайт</a>
-          </div>
-          <div className="student__portfolio-link">
-            <a href="https://github.com/shardakova" target="_blank" rel="noreferrer">Одностраничное приложение</a>
-          </div>
+          <a className="student__portfolio-link" href="https://github.com/shardakova" target="_blank" rel="noreferrer">
+            <span>Статичный сайт</span>
+          </a>
+          <a className="student__portfolio-link" href="https://github.com/shardakova" target="_blank" rel="noreferrer">
+            <span>Адаптивный сайт</span>
+          </a>
+          <a className="student__portfolio-link" href="https://github.com/shardakova" target="_blank" rel="noreferrer">
+            <span>Одностраничное приложение</span>
+          </a>
         </div>
       </section>
     </section>

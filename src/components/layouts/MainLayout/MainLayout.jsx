@@ -6,13 +6,13 @@ import Layout from '../Layout/Layout';
 function MainLayout (props) {
   return (
     <Layout>
-      <section className={`main-layout ${props.isLanding ? 'main-layout_no-padding' : ''}`}>
+      <div className={`main-layout ${props.isLanding ? 'main-layout_no-padding' : ''}`}>
         <Header isLanding={props.isLanding} />
-        <main>
+        <div>
           {props.children}
-        </main>
+        </div>
         <Footer isLanding={props.isLanding} />
-      </section>
+      </div>
     </Layout>
   );
 }

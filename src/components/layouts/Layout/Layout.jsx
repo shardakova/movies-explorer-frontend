@@ -12,7 +12,7 @@ function Layout (props) {
 
   return (
     <LayoutContext.Provider value={{ toggleDrawer }}>
-      <section
+      <main
         onClick={() => {
           if (!isDrawerOpened) {
             return;
@@ -24,7 +24,7 @@ function Layout (props) {
         <div className="layout__wrapper">
           {props.children}
         </div>
-      </section>
+      </main>
       <Drawer isOpened={isDrawerOpened} toggleDrawer={toggleDrawer} />
     </LayoutContext.Provider>
   );

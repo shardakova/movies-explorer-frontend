@@ -5,12 +5,10 @@ import Layout from '../Layout/Layout';
 function ProfileLayout (props) {
   return (
     <Layout>
-      <section className="profile-layout">
+      <div className="profile-layout">
         <Header />
-        <main>
-          {props.children}
-        </main>
-      </section>
+        {props.children}
+      </div>
     </Layout>
   );
 }

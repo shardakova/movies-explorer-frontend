@@ -4,6 +4,7 @@ function Switch (props) {
   return (
     <div
       role="checkbox"
+      aria-checked={props.isActive}
       tabIndex="0"
       className={`switch ${props.isActive ? 'switch_active' : ''}`}
       onClick={() => props.onChange()}

@@ -4,6 +4,7 @@
 .drawer
     position: fixed
     width: 100%
+    max-width: 520px
     height: 100%
     right: 0
     top: 0
@@ -13,9 +14,6 @@
     z-index: 10
     background: var(--color-dark)
     overflow-y: auto
-
-    @include tablet
-        width: 520px
 
     &_opened
         transform: translateZ(0)

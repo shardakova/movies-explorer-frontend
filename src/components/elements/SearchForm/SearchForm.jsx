@@ -12,13 +12,12 @@ function SearchForm (props) {
   }
 
   return (
-    <form className="search-form">
+    <form className="search-form" role="search">
       <div className="search-form__input-wrapper">
         <input
-          type="text"
+          type="search"
           placeholder={props.placeholder || 'Фильмы'}
           className="search-form__input"
-          role="search"
           aria-required={true}
           aria-label="Поиск по фильмам"
         />

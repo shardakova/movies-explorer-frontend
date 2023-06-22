@@ -4,7 +4,6 @@ function Button (props) {
   return (
     <button
       type="button"
-      role="button"
       aria-label={props.ariaLabel}
       className={`button
       ${props.size ? `button_size_${props.size}` : ''}
