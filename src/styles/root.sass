@@ -1,0 +1,21 @@
+@use './variables' as *
+
+\:root
+    --font-family-base: #{$fontFamilyBase}
+    --font-weight-base: #{$fontWeightBase}
+    --font-weight-bold: #{$fontWeightBold}
+    --color-dark: #{$colorDark}
+    --color-dark--lighten-1: #{lighten($colorDark, 2.6%)}
+    --color-dark--lighten-2: #{lighten($colorDark, 6%)}
+    --color-dark--lighten-3: #{lighten($colorDark, 6.4%)}
+    --color-dark--lighten-4: #{lighten($colorDark, 6.6%)}
+    --color-dark--lighten-5: #{lighten($colorDark, 13.4%)}
+    --color-light: #{$colorLight}
+    --color-light--dakren-1: #{darken($colorLight, 14.4%)}
+    --color-light--dakren-2: #{darken($colorLight, 45.4%)}
+    --color-primary: #{$colorPrimary}
+    --color-primary--dakren-1: #{darken($colorPrimary, 13%)}
+    --color-accent: #{$colorAccent}
+    --color-accent--dakren-1: #{darken($colorAccent, 13%)}
+    --color-danger: #{$colorDanger}
+    --color-secondary: #{$colorSecondary}

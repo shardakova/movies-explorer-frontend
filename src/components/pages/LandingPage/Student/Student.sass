@@ -1,0 +1,116 @@
+@import '../../../../styles/mixins/tablet'
+@import '../../../../styles/mixins/desktop'
+
+.student
+    padding: 70px 14px
+
+    @include tablet
+        padding: 90px 50px
+
+    @include desktop
+        padding: 110px 70px
+
+    &__info
+        display: flex
+        flex-direction: column-reverse
+        gap: 40px
+
+        @include tablet
+            flex-direction: row
+            justify-content: space-between
+
+    &__bio
+        display: flex
+        flex-direction: column
+        gap: 20px
+        font-size: 11px
+
+        @include tablet
+            font-size: 12px
+
+        @include desktop
+            font-size: 14px
+            max-width: 600px
+
+    &__name
+        font-size: 30px
+        font-weight: var(--font-weight-base)
+        margin: 0
+
+        @include tablet
+            font-size: 40px
+
+        @include desktop
+            font-size: 50px
+
+    &__occupation
+        margin: 0
+
+        @include desktop
+            font-size: 18px
+
+    &__description
+        margin: 0
+
+    &__links
+        font-size: 14px
+        font-weight: var(--font-weight-bold)
+        padding-top: 20px
+
+    &__photo
+        border-radius: 12px
+
+    &__portfolio
+        padding-top: 70px
+
+        @include desktop
+            padding-top: 90px
+
+        @include desktop
+            padding-top: 100px
+
+    &__portfolio-title
+        color: var(--color-light--dakren-2)
+        font-size: 14px
+        padding-bottom: 40px
+
+        @include tablet
+            font-size: 18px
+
+    &__portfolio-links
+        display: flex
+        flex-direction: column
+
+    &__portfolio-link
+        position: relative
+        font-size: 18px
+        padding: 20px 0
+        border-bottom: 1px solid var(--color-dark--lighten-5)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        gap: 10px
+
+        @include tablet
+            font-size: 28px
+
+        @include desktop
+            font-size: 30px
+
+    &__portfolio-link:last-child
+        border-bottom: 0
+
+    &__portfolio-link:after
+        content: url(../../../../images/icons/link-arrow.svg)
+        width: 18px
+        height: 28px
+        color: var(--color-light)
+        flex-shrink: 0
+        display: grid
+        place-content: center
+
+        @include tablet
+            transform: scale(140%)
+
+        @include desktop
+            transform: scale(160%)

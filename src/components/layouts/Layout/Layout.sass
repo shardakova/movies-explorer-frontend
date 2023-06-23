@@ -1,0 +1,51 @@
+@import '../../../styles/mixins/tablet'
+
+.layout
+    height: 100%
+    transition: opacity .2s ease-out, transform .2s ease-out
+    will-change: opacity, transform
+
+    &_drawer-opened
+        opacity: 0.4
+        transform: translate3d(-5%, 0, 0)
+        cursor: pointer
+
+    &_drawer-opened &__wrapper
+        pointer-events: none
+
+    &__wrapper
+        height: 100%
+        overflow-y: scroll
+
+    &__error
+        display: flex
+        flex-direction: column
+        text-align: center
+        height: 100%
+
+    &__error-content
+        display: flex
+        flex-direction: column
+        gap: 5px
+        height: 100%
+        justify-content: center
+
+    &__error-header
+        font-size: 80px
+
+        @include tablet
+            font-size: 140px
+
+    &__error-text
+        font-size: 12px
+
+        @include tablet
+            font-size: 16px
+
+    &__error-back-link
+        font-size: 12px
+        padding-bottom: 60px
+
+        @include tablet
+            font-size: 14px
+

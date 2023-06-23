@@ -1,0 +1,20 @@
+@use '../../../styles/variables'
+@import '../../../styles/mixins/tablet'
+@import '../../../styles/mixins/desktop'
+
+.profile-layout
+    display: grid
+    grid-template-areas: "header" "main"
+    grid-template-rows: auto 1fr auto
+    padding: 0 10px
+    height: 100%
+    max-width: variables.$maxLayoutWidth
+    margin: 0 auto
+    box-sizing: border-box
+
+    @include tablet
+        padding: 0 30px
+
+    @include desktop
+        padding: 0 70px
+

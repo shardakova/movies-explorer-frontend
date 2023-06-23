@@ -1,0 +1,28 @@
+@import '../../../../styles/mixins/tablet'
+@import '../../../../styles/mixins/desktop'
+
+.top-banner
+    background-image: url('../../../../images/top-banner.svg')
+    background-repeat: no-repeat
+    background-position: center
+    background-color: var(--color-secondary)
+    width: 100%
+    padding: 74px 0
+    height: 450px
+    display: grid
+    place-content: center
+    text-align: center
+
+    &__header
+        font-size: 31px
+        font-weight: var(--font-weight-base)
+        padding: 0 10px
+
+        @include tablet
+            font-size: 50px
+            padding: 0 50px
+
+        @include desktop
+            padding: 0 70px
+            width: 730px
+

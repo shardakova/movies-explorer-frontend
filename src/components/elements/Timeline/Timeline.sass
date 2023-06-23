@@ -1,0 +1,30 @@
+@import '../../../styles/mixins/tablet'
+
+.timeline
+    display: flex
+    width: 100%
+
+    &__item
+        display: flex
+        flex-direction: column
+        gap: 10px
+        font-size: 11px
+
+        @include tablet
+            gap: 14px
+            font-size: 14px
+
+    &__time
+        display: grid
+        place-content: center
+        height: 35px
+        background: var(--color-dark--lighten-3)
+
+    &__time_completed
+        background: var(--color-accent)
+        color: var(--color-dark)
+
+    &__description
+        display: grid
+        place-content: center
+        color: var(--color-light--dakren-2)
