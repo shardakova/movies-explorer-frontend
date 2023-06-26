@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import AuthLayout from '../../layouts/AuthLayout/AuthLayout';
 import Button from '../../elements/Button/Button';
 import { useEditMeMutation } from '../../../services/userApi';
+import { EMAIL_REGEXP } from '../../../utils/constants';
 
 function EditProfilePage () {
   const navigate = useNavigate();
@@ -63,8 +64,10 @@ function EditProfilePage () {
           <input
             id="email"
             name="email"
-            type="email"
+            type="text"
             required="required"
+            pattern={EMAIL_REGEXP}
+            title="Введите адрес электронной почты"
             className="form__input"
             onInput={(event) => {
               setEmail(event.target.value);

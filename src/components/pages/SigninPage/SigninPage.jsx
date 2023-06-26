@@ -5,6 +5,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useSigninMutation } from '../../../services/authApi';
 import useValidation from '../../hooks/useValidation';
 import useAuthUser from '../../hooks/useAuthUser';
+import { EMAIL_REGEXP } from '../../../utils/constants';
 
 function SigninPage () {
   const navigate = useNavigate();
@@ -45,8 +46,10 @@ function SigninPage () {
           <input
             id="email"
             name="email"
-            type="email"
+            type="text"
             required="required"
+            pattern={EMAIL_REGEXP}
+            title="Введите адрес электронной почты"
             className="form__input"
             onInput={(event) => {
               setEmail(event.target.value);

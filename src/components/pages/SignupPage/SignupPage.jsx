@@ -6,6 +6,7 @@ import useValidation from '../../hooks/useValidation';
 import { useEffect, useState } from 'react';
 import { useSignupMutation } from '../../../services/authApi';
 import { toast } from 'react-toastify';
+import { EMAIL_REGEXP } from '../../../utils/constants';
 
 function SignupPage () {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function SignupPage () {
   const [onInput, errors, isValid] = useValidation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState();
   const [signup, { data: signupResponse, error: signupResponseError, isLoading, isSuccess }] = useSignupMutation();
 
   const handleSubmit = () => {
@@ -66,8 +67,10 @@ function SignupPage () {
           <input
             id="email"
             name="email"
-            type="email"
+            type="text"
             required="required"
+            pattern={EMAIL_REGEXP}
+            title="Введите адрес электронной почты"
             className="form__input"
             onInput={(event) => {
               setEmail(event.target.value);
