@@ -1,21 +1,15 @@
 import { useEffect, useState } from 'react';
+import { SCREEN_WIDTH_TO_MOVIES_IN_ROW_COUNT } from '../../utils/constants';
 
 const useShowMoreMoviesCount = () => {
   const [showMoreCount, setShowMoreCount] = useState(5);
-
-  const bindings = {
-    768: 2,
-    1280: 3,
-    1570: 4,
-    Infinity: 5
-  };
 
   useEffect(() => {
     let resizeTimeout;
     const handleResize = (event) => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        const count = Object.entries(bindings).find(([screenSize]) => screenSize > event.target.innerWidth);
+        const count = Object.entries(SCREEN_WIDTH_TO_MOVIES_IN_ROW_COUNT).find(([screenSize]) => screenSize > event.target.innerWidth);
         setShowMoreCount(count[1]);
       }, 50);
     };

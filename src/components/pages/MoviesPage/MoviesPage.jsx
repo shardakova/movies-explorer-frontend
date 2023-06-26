@@ -9,6 +9,7 @@ import { useGetMoviesQuery as useGetSavedMoviesQuery } from '../../../services/m
 import Loader from '../../elements/Loader/Loader';
 import filterMovies from '../../../utils/filterMovies';
 import useShowMoreMoviesCount from '../../hooks/useShowMoreMoviesCount';
+import { INITIAL_MOVIES_ROWS_COUNT } from '../../../utils/constants';
 
 function MoviesPage () {
   const {
@@ -24,7 +25,7 @@ function MoviesPage () {
     refetch: refetchSavedMovies
   } = useGetSavedMoviesQuery();
   const moreMoviesCount = useShowMoreMoviesCount();
-  const [moviesPageNumber, setMoviesPageNumber] = useState(4);
+  const [moviesPageNumber, setMoviesPageNumber] = useState(INITIAL_MOVIES_ROWS_COUNT);
   const [search, setSearch] = useState({});
 
   const isMoviesReady = (
