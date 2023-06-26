@@ -36,6 +36,7 @@ function ProfilePage () {
             href="#"
             onClick={(event) => {
               event.preventDefault();
+              window.localStorage.clear();
               signout();
             }}
             className="link link_color_danger"

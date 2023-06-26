@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { userApi } from './userApi';
 import { moviesApi } from './moviesApi';
 import transformValidationErrorResponse from '../utils/transformValidationErrorResponse';
+import { beatfilmApi } from './beatfilmApi';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -81,6 +82,7 @@ export const authApi = createApi({
           await queryFulfilled;
           dispatch(userApi.util.resetApiState());
           dispatch(moviesApi.util.resetApiState());
+          dispatch(beatfilmApi.util.resetApiState());
         } catch (err) {
           // Ignore
         }
