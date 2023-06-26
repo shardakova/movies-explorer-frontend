@@ -16,10 +16,16 @@ function EditProfilePage () {
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState('');
   const [editMe, { data: signupResponse, error: signupResponseError, isLoading, isSuccess }] = useEditMeMutation();
+  const [isFormChanged, setIsFormChanged] = useState(false);
 
   const handleSubmit = () => {
     editMe({ name, email, password });
   };
+
+  useEffect(() => {
+    const isChanged = name !== user.name || email !== user.email || password;
+    setIsFormChanged(isChanged);
+  }, [name, email, password]);
 
   useEffect(() => {
     if (signupResponse && isSuccess) {
@@ -99,7 +105,7 @@ function EditProfilePage () {
             ariaLabel="Сохранить"
             color="primary"
             htmlType="submit"
-            disabled={isLoading || !isValid}
+            disabled={isLoading || !isValid || !isFormChanged}
           >
             Сохранить
           </Button>
