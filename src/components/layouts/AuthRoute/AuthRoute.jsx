@@ -5,7 +5,7 @@ function AuthRoute (props) {
   const { data: user, isLoading, isUninitialized } = useGetMeQuery();
 
   if (!user && !isLoading && !isUninitialized) {
-    return <Navigate to="/signin" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return props.children;
