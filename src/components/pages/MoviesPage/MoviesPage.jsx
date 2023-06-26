@@ -106,7 +106,8 @@ function MoviesPage () {
                     ariaLabel="Загрузить больше фильмов"
                     onClick={() => {
                       setMoviesPageNumber(moviesPageNumber + 1);
-                    }}>
+                    }}
+                  >
                     Ещё
                   </Button>
                 </div>

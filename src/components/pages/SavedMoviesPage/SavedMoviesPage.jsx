@@ -79,7 +79,6 @@ function SavedMoviesPage () {
       <div className="movies-page">
         <div className="movies-page__search-form">
           <SearchForm
-            storageKey="savedMovies"
             onSearch={handleSearch}
           />
         </div>
@@ -93,7 +92,8 @@ function SavedMoviesPage () {
                     ariaLabel="Загрузить больше фильмов"
                     onClick={() => {
                       setMoviesPageNumber(moviesPageNumber + 1);
-                    }}>
+                    }}
+                  >
                     Ещё
                   </Button>
                 </div>

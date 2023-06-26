@@ -7,7 +7,9 @@ import { ReactComponent as SearchIcon } from '../../../images/icons/search.svg';
 function SearchForm (props) {
   let savedValues;
   try {
-    savedValues = JSON.parse(window.localStorage.getItem(props.storageKey));
+    if (props.storageKey) {
+      savedValues = JSON.parse(window.localStorage.getItem(props.storageKey));
+    }
   } catch (err) {
     // Ignore
   }
@@ -25,7 +27,9 @@ function SearchForm (props) {
 
   useEffect(() => {
     const values = { isReady: true, fields: { value, isShortFilmActive } };
-    window.localStorage.setItem(props.storageKey, JSON.stringify(values.fields));
+    if (props.storageKey) {
+      window.localStorage.setItem(props.storageKey, JSON.stringify(values.fields));
+    }
     props.onSearch(values);
   }, [value, isShortFilmActive]);
 
