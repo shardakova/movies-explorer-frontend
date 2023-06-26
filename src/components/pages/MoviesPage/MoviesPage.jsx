@@ -40,7 +40,7 @@ function MoviesPage () {
       return [];
     }
     return filterMovies(movies, search.fields);
-  }, [movies, search]);
+  }, [movies, search, isMoviesReady]);
 
   const handleSearch = (value) => {
     setSearch(value);
