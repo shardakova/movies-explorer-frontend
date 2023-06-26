@@ -6,11 +6,12 @@ import Button from '../../elements/Button/Button';
 import { ReactComponent as Logo } from '../../../images/logo.svg';
 import { ReactComponent as HamburgerIcon } from '../../../images/icons/hamburger.svg';
 import { ReactComponent as ProfileIcon } from '../../../images/icons/profile.svg';
+import useAuthUser from '../../hooks/useAuthUser';
 
 function Header (props) {
   const navigate = useNavigate();
   const { toggleDrawer } = useContext(LayoutContext);
-  const isLoggedIn = true;
+  const user = useAuthUser();
 
   return (
     <header className={`header ${props.isLanding ? 'header__landing' : ''}`}>
@@ -20,7 +21,7 @@ function Header (props) {
         </Link>
       </div>
       {
-        isLoggedIn
+        user
           ? (
             <>
               <div className="header__links mobile-only">

@@ -85,6 +85,20 @@
         & svg
             transform: scale(40%)
 
+    &__button_loading,
+    &__button_loading[disabled]
+        display: block
+        opacity: 1
+        cursor: auto
+        background: transparent
+
+        &:hover
+            background: transparent
+
+    &__button-loader
+        width: 100% !important
+        height: 100% !important
+
     &:hover &__delete-button,
     &:hover &__like-button
         opacity: 1
