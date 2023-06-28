@@ -65,18 +65,11 @@
     &__like-button
         display: grid
         place-content: center
-        opacity: 0
         width: 24px
         height: 24px
         border-radius: 50%
         flex-shrink: 0
-        transition: opacity .2s ease-out, background-color .2s ease-out
-
-        @include touch-device
-            opacity: 1
-
-        &:focus
-            opacity: 1
+        transition: background-color .2s ease-out
 
     &__like-button
         display: block
@@ -85,9 +78,18 @@
         & svg
             transform: scale(40%)
 
-    &:hover &__delete-button,
-    &:hover &__like-button
-        opacity: 1
+    &__button_loading,
+    &__button_loading[disabled]
+        display: block
+        cursor: auto
+        background: transparent
+
+        &:hover
+            background: transparent
+
+    &__button-loader
+        width: 100% !important
+        height: 100% !important
 
     &__like-button_liked
         color: var(--color-danger)

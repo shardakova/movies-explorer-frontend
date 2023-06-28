@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Drawer.sass';
 import { ReactComponent as CloseIcon } from '../../../images/icons/close.svg';
 import { ReactComponent as ProfileIcon } from '../../../images/icons/profile.svg';
 import Button from '../../elements/Button/Button';
 
 function Drawer (props) {
+  const navigate = useNavigate();
+
   return (
     <aside className={`drawer ${props.isOpened ? 'drawer_opened' : ''}`}>
       <Button
@@ -16,18 +18,56 @@ function Drawer (props) {
       </Button>
       <div className="drawer__content">
         <div className="drawer__menu">
-          <Link to="/" className="drawer__menu-link">Главная</Link>
-          <Link to="/movies" className="drawer__menu-link">Фильмы</Link>
-          <Link to="/saved-movies" className="drawer__menu-link">Сохранённые фильмы</Link>
+          <a
+            href="/"
+            className="drawer__menu-link"
+            onClick={(event) => {
+              event.preventDefault();
+              props.toggleDrawer();
+              navigate('/');
+            }}
+          >
+            Главная
+          </a>
+          <a
+            href="/movies"
+            className="drawer__menu-link"
+            onClick={(event) => {
+              event.preventDefault();
+              props.toggleDrawer();
+              navigate('/movies');
+            }}
+          >
+            Фильмы
+          </a>
+          <a
+            href="/saved-movies"
+            className="drawer__menu-link"
+            onClick={(event) => {
+              event.preventDefault();
+              props.toggleDrawer();
+              navigate('/saved-movies');
+            }}
+          >
+            Сохранённые фильмы
+          </a>
         </div>
-        <Link to="/profile" className="drawer__profile-link">
-        <span>
-          Аккаунт
-        </span>
+        <a
+          href="/profile"
+          className="drawer__profile-link"
+          onClick={(event) => {
+            event.preventDefault();
+            props.toggleDrawer();
+            navigate('/profile');
+          }}
+        >
+          <span>
+            Аккаунт
+          </span>
           <span className="drawer__profile-link-icon">
-          <ProfileIcon />
-        </span>
-        </Link>
+            <ProfileIcon />
+          </span>
+        </a>
       </div>
     </aside>
   );

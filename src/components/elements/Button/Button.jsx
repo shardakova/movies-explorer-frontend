@@ -3,8 +3,9 @@ import './Button.sass';
 function Button (props) {
   return (
     <button
-      type="button"
+      type={props.htmlType || 'button'}
       aria-label={props.ariaLabel}
+      disabled={props.disabled}
       className={`button
       ${props.size ? `button_size_${props.size}` : ''}
       ${props.color ? `button_color_${props.color}` : ''}

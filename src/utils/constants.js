@@ -1,0 +1,16 @@
+const SCREEN_WIDTH_TO_MOVIES_IN_ROW_COUNT = {
+  768: 2,
+  1280: 3,
+  1570: 4,
+  Infinity: 5
+};
+const INITIAL_MOVIES_ROWS_COUNT = 4;
+const MAX_SHORT_FILM_DURATION = 40;
+const EMAIL_REGEXP = '\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+';
+
+export {
+  SCREEN_WIDTH_TO_MOVIES_IN_ROW_COUNT,
+  INITIAL_MOVIES_ROWS_COUNT,
+  MAX_SHORT_FILM_DURATION,
+  EMAIL_REGEXP
+};

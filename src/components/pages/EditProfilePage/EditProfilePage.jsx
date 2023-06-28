@@ -1,30 +1,36 @@
+import { Link, useNavigate } from 'react-router-dom';
+import useAuthUser from '../../hooks/useAuthUser';
+import { useEffect, useState } from 'react';
+import useValidation from '../../hooks/useValidation';
+import { toast } from 'react-toastify';
 import AuthLayout from '../../layouts/AuthLayout/AuthLayout';
 import Button from '../../elements/Button/Button';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import useAuthUser from '../../hooks/useAuthUser';
-import useValidation from '../../hooks/useValidation';
-import { useEffect, useState } from 'react';
-import { useSignupMutation } from '../../../services/authApi';
-import { toast } from 'react-toastify';
+import { useEditMeMutation } from '../../../services/userApi';
 import { EMAIL_REGEXP } from '../../../utils/constants';
 
-function SignupPage () {
+function EditProfilePage () {
   const navigate = useNavigate();
   const user = useAuthUser();
   const [onInput, errors, isValid] = useValidation();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState();
-  const [signup, { data: signupResponse, error: signupResponseError, isLoading, isSuccess }] = useSignupMutation();
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState('');
+  const [editMe, { data: signupResponse, error: signupResponseError, isLoading, isSuccess }] = useEditMeMutation();
+  const [isFormChanged, setIsFormChanged] = useState(false);
 
   const handleSubmit = () => {
-    signup({ name, email, password });
+    editMe({ name, email, password });
   };
 
   useEffect(() => {
+    const isChanged = name !== user.name || email !== user.email || password;
+    setIsFormChanged(isChanged);
+  }, [name, email, password]);
+
+  useEffect(() => {
     if (signupResponse && isSuccess) {
-      toast.success('Вы успешно зарегистрированы!');
-      navigate('/signin');
+      toast.success('Ваш профиль успешно отредактирован!');
+      navigate('/profile');
     }
   }, [signupResponse]);
 
@@ -32,12 +38,8 @@ function SignupPage () {
   const emailError = errors.email || signupResponseError?.data?.error?.email;
   const passwordError = errors.password || signupResponseError?.data?.error?.password;
 
-  if (user) {
-    return <Navigate to="/movies" replace />;
-  }
-
   return (
-    <AuthLayout title="Добро пожаловать!">
+    <AuthLayout title="Редактирование профиля">
       <form
         className="form"
         onSubmit={(event) => {
@@ -59,6 +61,7 @@ function SignupPage () {
               onInput(event);
             }}
             disabled={isLoading}
+            defaultValue={user.name}
           />
           {nameError && (<span className="form__error-text">{nameError}</span>)}
         </div>
@@ -77,16 +80,16 @@ function SignupPage () {
               onInput(event);
             }}
             disabled={isLoading}
+            defaultValue={user.email}
           />
           {emailError && (<span className="form__error-text">{emailError}</span>)}
         </div>
         <div className={`form__field ${passwordError ? 'form__field_has-error' : ''}`}>
-          <label htmlFor="password" className="form__label">Пароль</label>
+          <label htmlFor="password" className="form__label">Новый пароль</label>
           <input
             id="password"
             name="password"
             type="password"
-            required="required"
             className="form__input"
             onInput={(event) => {
               setPassword(event.target.value);
@@ -94,19 +97,20 @@ function SignupPage () {
             }}
             disabled={isLoading}
           />
+          <span className="form__info-text">Оставьте поле пустым, если не хотите менять пароль.</span>
           {passwordError && (<span className="form__error-text">{passwordError}</span>)}
         </div>
         <div className="form__buttons">
           <Button
-            ariaLabel="Зарегистрироваться"
+            ariaLabel="Сохранить"
             color="primary"
             htmlType="submit"
-            disabled={isLoading || !isValid}
+            disabled={isLoading || !isValid || !isFormChanged}
           >
-            Зарегистрироваться
+            Сохранить
           </Button>
           <div className="form__buttons-text">
-            Уже зарегистрированы? <Link to="/signin" className="link link_color_primary">Войти</Link>
+            Вернуться к <Link to="/profile" className="link link_color_primary">профилю</Link>.
           </div>
         </div>
       </form>
@@ -114,4 +118,4 @@ function SignupPage () {
   );
 }
 
-export default SignupPage;
+export default EditProfilePage;
